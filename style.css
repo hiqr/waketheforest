@@ -65,11 +65,9 @@ a { color: inherit; }
 .header-social a, .footer-social a {
   color: white; text-decoration: none; font-weight: 800;
   display: inline-flex; align-items: center; justify-content: center;
-  border: 2px solid currentColor; border-radius: 4px;
   width: 17px; height: 17px; font-size: 11px; line-height: 1;
 }
-.header-social a:first-child, .footer-social a:first-child { border-radius: 50%; }
-.header-social svg, .footer-social svg { display: block; width: 11px; height: 11px; fill: currentColor; }
+.header-social svg, .footer-social svg { display: block; width: 22px; height: 22px; fill: currentColor; }
 .header-social .instagram-icon, .footer-social .instagram-icon { fill: none; stroke: currentColor; stroke-width: 2.5; }
 .header-social .instagram-dot, .footer-social .instagram-dot { fill: currentColor; stroke: none; }
 .hero {
@@ -187,7 +185,7 @@ footer {
 }
 footer small { font-size: clamp(7px, 1.2vw, 10px); }
 .footer-social { display: flex; gap: 7px; margin-right: 43%; }
-.footer-social a { width: 17px; height: 17px; font-size: 10px; }
+.footer-social a { width: 22px; height: 22px; font-size: 10px; }
 
 @media (min-width: 900px) {
   body { font-size: clamp(16px, 1.45vw, 22px); }
