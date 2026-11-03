@@ -113,7 +113,7 @@ a { color: inherit; }
   gap: 12px;
   white-space: nowrap;
 }
-.story-copy p { margin: 0; }
+.story-copy p { margin: 0; font-size: clamp(15px, 1.9vw, 24px); }
 .story-image {
   display: block;
   width: 100%;
@@ -123,6 +123,7 @@ a { color: inherit; }
 .mission-image { margin-top: 0; }
 .roots-image { margin-top: 0; }
 .roots-copy { padding-top: 0; }
+.roots-copy h2 { gap: 18px; }
 .sprout-icon { font-family: Arial, sans-serif; font-size: 1.25em; line-height: .7; transform: rotate(180deg); }
 .roots-icon { font-family: Arial, sans-serif; font-size: 1.35em; letter-spacing: -.25em; transform: scaleX(1.3); }
 .events {
@@ -209,7 +210,7 @@ footer small { font-size: clamp(7px, 1.2vw, 10px); }
   .story-grid { gap: 20px 2%; padding: 2.3% 1.5% 2%; }
   .story-copy { padding: 2% 3%; }
   .story-copy h2 { font-size: clamp(21px, 5.7vw, 27px); gap: 7px; padding-bottom: 9px; margin-bottom: 14px; }
-  .story-copy p { font-size: clamp(12px, 2.8vw, 15px); }
+  .roots-copy h2 { gap: 12px; }
   .events-overlay { padding: 15px 4%; }
   .social { gap: 18px; }
   .social a { font-size: clamp(11px, 2.8vw, 14px); }
@@ -228,4 +229,70 @@ footer small { font-size: clamp(7px, 1.2vw, 10px); }
   .story-copy p { font-size: 11px; }
   .donate-copy h2 { font-size: 22px; }
   .donate-copy p { font-size: 12px; }
+}
+
+
+/* Core Layout Container */
+.collage-section {
+  width: 100%;
+  min-height: auto; 
+  display: flex;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(65px, 7vw, 110px);
+  grid-auto-flow: dense;
+  gap: 0;
+  width: 100%;
+  align-content: start;
+}
+
+.collage-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.collage-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Unique Grid Item Variations */
+.item-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.item-tall {
+  grid-row: span 2;
+}
+
+.item-wide {
+  grid-column: span 2;
+}
+
+/* Desktop Styles (Screens wider than 768px) */
+@media (min-width: 768px) {
+  .collage-grid {
+    grid-auto-rows: 10vw; 
+  }
+}
+
+
+/* Alternative: Zero-gap uniform grid (Remove item-large, item-tall, etc. from HTML) */
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 16vw; /* 1 row high on mobile */
+  gap: 0;
+}
+@media (min-width: 768px) {
+  .collage-grid {
+    grid-auto-rows: 9vw; /* 1 row high on desktop */
+  }
 }
