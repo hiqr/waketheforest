@@ -58,7 +58,7 @@ a { color: inherit; }
   color: white;
   text-decoration: none;
   font-size: clamp(12px, 2.7vw, 19px);
-  font-weight: 800;
+  font-weight: 400;
   white-space: nowrap;
 }
 .header-social { position: absolute; right: 1.5%; top: 5px; display: flex; gap: 8px; }
@@ -69,6 +69,9 @@ a { color: inherit; }
   width: 17px; height: 17px; font-size: 11px; line-height: 1;
 }
 .header-social a:first-child, .footer-social a:first-child { border-radius: 50%; }
+.header-social svg, .footer-social svg { display: block; width: 11px; height: 11px; fill: currentColor; }
+.header-social .instagram-icon, .footer-social .instagram-icon { fill: none; stroke: currentColor; stroke-width: 2.5; }
+.header-social .instagram-dot, .footer-social .instagram-dot { fill: currentColor; stroke: none; }
 .hero {
   min-height: clamp(280px, 48vw, 490px);
   background: url("assets/planting-hero-dark.png") center 54% / cover no-repeat; /*linear-gradient(#001d05a8, #001d0540), url("assets/planting.png") center 54% / cover no-repeat; */
@@ -94,6 +97,7 @@ a { color: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: clamp(22px, 4vw, 34px) 2.4%;
   padding: 2.3% 1.6% 2%;
+  margin-bottom: clamp(16px, 2vw, 28px);
   align-items: start;
 }
 .story-copy { padding: 2% 3.8%; }
@@ -141,10 +145,11 @@ a { color: inherit; }
   padding: 18px 8%;
 }
 .social a { display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; font-family: "Courier New", monospace; font-weight: 700; font-size: clamp(14px, 3.2vw, 21px); white-space: nowrap; }
-.facebook-icon, .instagram-icon, .linkedin-icon { display: flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; font-weight: 800; font-size: clamp(43px, 9.5vw, 66px); width: clamp(55px, 10vw, 70px); height: clamp(55px, 10vw, 70px); }
-.facebook-icon { background: #000; color: var(--cream); border-radius: 50%; font-size: clamp(45px, 8.5vw, 62px); padding-top: 7px; }
-.instagram-icon { border: 5px solid #000; border-radius: 24px; font-size: clamp(52px, 9vw, 65px); line-height: 1; }
-.linkedin-icon { background: #000; color: var(--cream); border-radius: 5px; font-size: clamp(33px, 6.5vw, 45px); }
+.social .facebook-icon, .social .instagram-icon, .social .linkedin-icon { display: block; width: clamp(55px, 10vw, 70px); height: clamp(55px, 10vw, 70px); }
+.social .facebook-icon { background: #000; color: var(--cream); border-radius: 50%; padding: 9px; fill: currentColor; }
+.social .instagram-icon { fill: none; stroke: #000; stroke-width: 1.8; }
+.social .instagram-dot { fill: #000; stroke: none; }
+.social .linkedin-icon { background: #000; color: var(--cream); border-radius: 5px; padding: 8px; fill: currentColor; }
 .accomplishments {
   background: var(--deep-forest); color: white; text-decoration: none;
   min-height: clamp(95px, 15vw, 130px);
@@ -176,7 +181,7 @@ a { color: inherit; }
 .payment-methods span:nth-child(2) { background: #d92b2b; color: white; }
 .payment-methods span:nth-child(3) { color: #1743a0; font-weight: 900; }
 footer {
-  background: var(--deep-forest); color: white; min-height: 46px;
+  background: var(--deep-forest); color: white; min-height: 60px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 1.7%; gap: 10px;
 }
