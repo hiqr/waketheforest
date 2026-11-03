@@ -2,6 +2,7 @@
 :root {
   --forest: #003d08;
   --deep-forest: #003b07;
+  --events-green: #00520b;
   --cream: #f5ffe8;
   --ink: #050b05;
 }
@@ -113,7 +114,7 @@ a { color: inherit; }
   gap: 12px;
   white-space: nowrap;
 }
-.story-copy p { margin: 0; }
+.story-copy p { margin: 0; font-size: clamp(15px, 1.9vw, 24px); }
 .story-image {
   display: block;
   width: 100%;
@@ -123,13 +124,14 @@ a { color: inherit; }
 .mission-image { margin-top: 0; }
 .roots-image { margin-top: 0; }
 .roots-copy { padding-top: 0; }
+.roots-copy h2 { gap: 18px; }
 .sprout-icon { font-family: Arial, sans-serif; font-size: 1.25em; line-height: .7; transform: rotate(180deg); }
 .roots-icon { font-family: Arial, sans-serif; font-size: 1.35em; letter-spacing: -.25em; transform: scaleX(1.3); }
 .events {
   min-height: clamp(270px, 42vw, 390px);
   background: url("assets/events-hero-dark.png") center / cover no-repeat;
-  border-top: clamp(14px, 2.8vw, 22px) solid #00520b;
-  border-bottom: clamp(14px, 2.8vw, 22px) solid #00520b;
+  border-top: clamp(14px, 2.8vw, 22px) solid var(--events-green);
+  /*border-bottom: clamp(14px, 2.8vw, 22px) solid var(--events-green); */
   display: flex; align-items: center; justify-content: center;
   text-align: center; color: white;
 }
@@ -138,6 +140,8 @@ a { color: inherit; }
 .events p { font-size: clamp(18px, 3.5vw, 24px); margin: 0; }
 .events a { font-weight: 700; }
 .social {
+  background: var(--deep-forest);
+  color: white;
   min-height: clamp(145px, 23vw, 180px);
   display: flex; align-items: center; justify-content: center;
   gap: clamp(25px, 5.4vw, 55px);
@@ -145,10 +149,9 @@ a { color: inherit; }
 }
 .social a { display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; font-family: "Courier New", monospace; font-weight: 700; font-size: clamp(14px, 3.2vw, 21px); white-space: nowrap; }
 .social .facebook-icon, .social .instagram-icon, .social .linkedin-icon { display: block; width: clamp(55px, 10vw, 70px); height: clamp(55px, 10vw, 70px); }
-.social .facebook-icon { background: #000; color: var(--cream); border-radius: 50%; padding: 9px; fill: currentColor; }
-.social .instagram-icon { fill: none; stroke: #000; stroke-width: 1.8; }
-.social .instagram-dot { fill: #000; stroke: none; }
-.social .linkedin-icon { background: #000; color: var(--cream); border-radius: 5px; padding: 8px; fill: currentColor; }
+.social .facebook-icon, .social .linkedin-icon { fill: currentColor; }
+.social .instagram-icon { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.social .instagram-dot { fill: currentColor; stroke: none; }
 .accomplishments {
   background: var(--deep-forest); color: white; text-decoration: none;
   min-height: clamp(95px, 15vw, 130px);
@@ -209,7 +212,7 @@ footer small { font-size: clamp(7px, 1.2vw, 10px); }
   .story-grid { gap: 20px 2%; padding: 2.3% 1.5% 2%; }
   .story-copy { padding: 2% 3%; }
   .story-copy h2 { font-size: clamp(21px, 5.7vw, 27px); gap: 7px; padding-bottom: 9px; margin-bottom: 14px; }
-  .story-copy p { font-size: clamp(12px, 2.8vw, 15px); }
+  .roots-copy h2 { gap: 12px; }
   .events-overlay { padding: 15px 4%; }
   .social { gap: 18px; }
   .social a { font-size: clamp(11px, 2.8vw, 14px); }
@@ -228,4 +231,70 @@ footer small { font-size: clamp(7px, 1.2vw, 10px); }
   .story-copy p { font-size: 11px; }
   .donate-copy h2 { font-size: 22px; }
   .donate-copy p { font-size: 12px; }
+}
+
+
+/* Core Layout Container */
+.collage-section {
+  width: 100%;
+  min-height: auto; 
+  display: flex;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(65px, 7vw, 110px);
+  grid-auto-flow: dense;
+  gap: 0;
+  width: 100%;
+  align-content: start;
+}
+
+.collage-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.collage-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Unique Grid Item Variations */
+.item-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.item-tall {
+  grid-row: span 2;
+}
+
+.item-wide {
+  grid-column: span 2;
+}
+
+/* Desktop Styles (Screens wider than 768px) */
+@media (min-width: 768px) {
+  .collage-grid {
+    grid-auto-rows: 10vw; 
+  }
+}
+
+
+/* Alternative: Zero-gap uniform grid (Remove item-large, item-tall, etc. from HTML) */
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 16vw; /* 1 row high on mobile */
+  gap: 0;
+}
+@media (min-width: 768px) {
+  .collage-grid {
+    grid-auto-rows: 9vw; /* 1 row high on desktop */
+  }
 }
