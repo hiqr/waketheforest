@@ -2,6 +2,7 @@
 :root {
   --forest: #003d08;
   --deep-forest: #003b07;
+  --events-green: #00520b;
   --cream: #f5ffe8;
   --ink: #050b05;
 }
@@ -129,8 +130,8 @@ a { color: inherit; }
 .events {
   min-height: clamp(270px, 42vw, 390px);
   background: url("assets/events-hero-dark.png") center / cover no-repeat;
-  border-top: clamp(14px, 2.8vw, 22px) solid #00520b;
-  border-bottom: clamp(14px, 2.8vw, 22px) solid #00520b;
+  border-top: clamp(14px, 2.8vw, 22px) solid var(--events-green);
+  /*border-bottom: clamp(14px, 2.8vw, 22px) solid var(--events-green); */
   display: flex; align-items: center; justify-content: center;
   text-align: center; color: white;
 }
@@ -139,6 +140,8 @@ a { color: inherit; }
 .events p { font-size: clamp(18px, 3.5vw, 24px); margin: 0; }
 .events a { font-weight: 700; }
 .social {
+  background: var(--deep-forest);
+  color: white;
   min-height: clamp(145px, 23vw, 180px);
   display: flex; align-items: center; justify-content: center;
   gap: clamp(25px, 5.4vw, 55px);
@@ -146,10 +149,9 @@ a { color: inherit; }
 }
 .social a { display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; font-family: "Courier New", monospace; font-weight: 700; font-size: clamp(14px, 3.2vw, 21px); white-space: nowrap; }
 .social .facebook-icon, .social .instagram-icon, .social .linkedin-icon { display: block; width: clamp(55px, 10vw, 70px); height: clamp(55px, 10vw, 70px); }
-.social .facebook-icon { background: #000; color: var(--cream); border-radius: 50%; padding: 9px; fill: currentColor; }
-.social .instagram-icon { fill: none; stroke: #000; stroke-width: 1.8; }
-.social .instagram-dot { fill: #000; stroke: none; }
-.social .linkedin-icon { background: #000; color: var(--cream); border-radius: 5px; padding: 8px; fill: currentColor; }
+.social .facebook-icon, .social .linkedin-icon { fill: currentColor; }
+.social .instagram-icon { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.social .instagram-dot { fill: currentColor; stroke: none; }
 .accomplishments {
   background: var(--deep-forest); color: white; text-decoration: none;
   min-height: clamp(95px, 15vw, 130px);
