@@ -33,7 +33,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: clamp(9px, 1.75vw, 17px);
+  font-size: clamp(9px, 1.85vw, 18px);
   line-height: 1.05;
   text-align: center;
   white-space: nowrap;
@@ -41,11 +41,9 @@ a { color: inherit; }
 }
 .brand-dot {
   display: block;
-  width: clamp(20px, 3.5vw, 34px);
+  width: clamp(32px, 4.6vw, 48px);
   aspect-ratio: 1;
-  border-radius: 50%;
-  background: #eee;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 .site-header nav {
   display: flex;
@@ -59,7 +57,7 @@ a { color: inherit; }
 .site-header nav a {
   color: white;
   text-decoration: none;
-  font-size: clamp(12px, 2.7vw, 19px);
+  font-size: clamp(12px, 2.85vw, 20px);
   font-weight: 400;
   white-space: nowrap;
 }
@@ -69,7 +67,7 @@ a { color: inherit; }
   display: inline-flex; align-items: center; justify-content: center;
   width: 17px; height: 17px; font-size: 11px; line-height: 1;
 }
-.header-social svg, .footer-social svg { display: block; width: 22px; height: 22px; fill: currentColor; }
+.header-social svg, .footer-social svg { display: block; width: 24px; height: 24px; fill: currentColor; }
 .header-social .instagram-icon, .footer-social .instagram-icon { fill: none; stroke: currentColor; stroke-width: 2.5; }
 .header-social .instagram-dot, .footer-social .instagram-dot { fill: currentColor; stroke: none; }
 .hero {
@@ -184,6 +182,7 @@ a { color: inherit; }
   min-height: 0;
   margin-left: auto;
   margin-right: auto;
+  touch-action: pan-y;
 
   display: flex;
   align-items: center;
@@ -285,32 +284,36 @@ a { color: inherit; }
   min-height: clamp(430px, 72vw, 570px);
 }
 .donate > img { width: 100%; height: 100%; min-height: 100%; object-fit: cover; object-position: center; }
-.donate-copy { padding: 3% 5%; align-self: start; }
+.donate-copy {
+  padding: 3% 5%;
+  display: flex;
+  flex-direction: column;
+}
 .donate-copy h2 { font-size: clamp(32px, 7.2vw, 45px); line-height: 1.18; margin: 0 0 14px; font-weight: 900; }
 .donate-copy p { margin: 0 0 22px; font-size: clamp(17px, 3.25vw, 22px); }
 .donate-button {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  width: 100%; min-height: clamp(65px, 10vw, 82px);
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  align-self: flex-start; width: max-content; max-width: 100%; margin-top: auto;
+  padding: 0 clamp(14px, 2.2vw, 24px); min-height: clamp(65px, 10vw, 82px);
   /*border: clamp(6px, 1.2vw, 9px) solid #46ab62;*/
   border-radius: 25px; background: linear-gradient(hsl(136, 100%, 79%), oklab(94.415% -0.08103 0.04111)); /* hsl(136, 100%, 79%); color: #000; */
   text-decoration: none; font-weight: 900; font-size: clamp(22px, 4.8vw, 32px);
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
 }
 .paypal-mark { color: #0070e8; font-style: italic; font-size: 1.25em; text-shadow: 2px 2px #002f8d; }
-.payment-methods { display: flex; gap: 5px; padding: 8px 3%; align-items: center; flex-wrap: wrap; }
-.payment-methods span { font-size: clamp(5px, .9vw, 9px); background: #fff; border: 1px solid #ddd; padding: 4px 5px; }
-.payment-methods span:nth-child(2) { background: #d92b2b; color: white; }
-.payment-methods span:nth-child(3) { color: #1743a0; font-weight: 900; }
+.payment-methods { width: min(100%, 160px); padding: 8px 0; }
+.payment-methods img { display: block; width: 100%; height: (2px, .4vw, 32px); 
+padding-bottom: 36px;}
 footer {
   background: var(--deep-forest); color: white; min-height: 60px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 1.7%; gap: 10px;
 }
-footer small { font-size: clamp(7px, 1.2vw, 10px);
+footer small { font-size: clamp(8px, 1.3vw, 11px);
   align-self: flex-end;
   margin-bottom: 0; }
 .footer-social { display: flex; gap: 7px; margin-right: 43%; }
-.footer-social a { width: 22px; height: 22px; font-size: 10px; }
+.footer-social a { width: 24px; height: 24px; font-size: 11px; }
 
 @media (min-width: 900px) {
   body { font-size: clamp(16px, 1.45vw, 22px); }
@@ -325,12 +328,12 @@ footer small { font-size: clamp(7px, 1.2vw, 10px);
 }
 @media (max-width: 480px) {
   .site-header { padding: 0 2%; }
-  .brand { min-width: 22%; font-size: 8px; }
+  .brand { min-width: 22%; font-size: 9px; }
   .brand-dot { margin-bottom: 5px; }
   .site-header nav { gap: 9px; padding-top: 10px; }
-  .site-header nav a { font-size: clamp(10px, 2.55vw, 12px); }
+  .site-header nav a { font-size: clamp(11px, 2.65vw, 13px); }
   .header-social { gap: 4px; right: 2%; }
-  .header-social a { width: 14px; height: 14px; font-size: 9px; }
+  .header-social a { width: 15px; height: 15px; font-size: 10px; }
   .story-grid { gap: 20px 2%; padding: 2.3% 1.5% 2%; }
   .story-copy { padding: 2% 3%; }
   .story-copy h2 { font-size: clamp(21px, 5.7vw, 27px); gap: 7px; padding-bottom: 9px; margin-bottom: 14px; }
@@ -348,13 +351,13 @@ footer small { font-size: clamp(7px, 1.2vw, 10px);
   .donate-copy { padding: 6% 4%; }
   .donate-copy h2 { font-size: clamp(25px, 6.9vw, 32px); }
   .donate-copy p { font-size: clamp(13px, 3.3vw, 16px); margin-bottom: 16px; }
-  .donate-button { min-height: 54px; border-radius: 18px; font-size: clamp(16px, 4.3vw, 21px); gap: 5px; border-width: 6px; }
+  .donate-button { min-height: 54px; border-radius: 18px; font-size: clamp(16px, 4.3vw, 21px); gap: 5px; padding: 0 12px; border-width: 6px; }
   .footer-social { margin-right: 0; }
 }
 @media (max-width: 340px) {
   .brand { min-width: 20%; }
   .site-header nav { gap: 6px; }
-  .site-header nav a { font-size: 9px; }
+  .site-header nav a { font-size: 10px; }
   .story-copy h2 { letter-spacing: 0; }
   .story-copy p { font-size: 11px; }
   .donate-copy h2 { font-size: 22px; }
