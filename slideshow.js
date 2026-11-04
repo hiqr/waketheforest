@@ -1,0 +1,72 @@
+const slides = Array.from(document.querySelectorAll(".tree-event-slide"));
+const controls = document.querySelectorAll("[data-slide-direction]");
+const slideshow = document.querySelector(".event-slideshow");
+const slideContainer = document.querySelector(".event-slides");
+const dotsContainer = document.querySelector(".event-slide-dots");
+const dots = slides.map((slide, index) => {
+  const dot = document.createElement("button");
+  dot.type = "button";
+  dot.className = "event-slide-dot";
+  dot.setAttribute("aria-label", `Show slide ${index + 1}: ${slide.querySelector("h3").textContent}`);
+  dot.addEventListener("click", () => {
+    showSlide(index);
+    restartAutoplay();
+  });
+  dotsContainer.append(dot);
+  return dot;
+});
+let currentSlide = 0;
+let autoplayTimer;
+
+function showSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  slides.forEach((slide, slideIndex) => {
+    slide.hidden = slideIndex !== currentSlide;
+    slide.setAttribute("aria-label", `${slideIndex + 1} of ${slides.length}`);
+    dots[slideIndex].setAttribute("aria-current", String(slideIndex === currentSlide));
+  });
+}
+
+function stopAutoplay() {
+  window.clearInterval(autoplayTimer);
+  slideContainer.setAttribute("aria-live", "polite");
+}
+
+function startAutoplay() {
+  if (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    || slideshow.matches(":hover")
+    || slideshow.contains(document.activeElement)
+    || document.hidden
+  ) {
+    return;
+  }
+  window.clearInterval(autoplayTimer);
+  slideContainer.setAttribute("aria-live", "off");
+  autoplayTimer = window.setInterval(() => showSlide(currentSlide + 1), 5000);
+}
+
+function restartAutoplay() {
+  stopAutoplay();
+  startAutoplay();
+}
+
+controls.forEach((button) => {
+  button.addEventListener("click", () => {
+    showSlide(currentSlide + Number(button.dataset.slideDirection));
+    restartAutoplay();
+  });
+});
+
+slideshow.addEventListener("mouseenter", stopAutoplay);
+slideshow.addEventListener("mouseleave", startAutoplay);
+slideshow.addEventListener("focusin", stopAutoplay);
+slideshow.addEventListener("focusout", (event) => {
+  if (!slideshow.contains(event.relatedTarget)) {
+    startAutoplay();
+  }
+});
+document.addEventListener("visibilitychange", startAutoplay);
+
+showSlide(currentSlide);
+startAutoplay();
