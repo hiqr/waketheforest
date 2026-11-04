@@ -124,7 +124,7 @@ a { color: inherit; }
 .mission-image { margin-top: 0; }
 .roots-image { margin-top: 0; }
 .roots-copy { padding-top: 0; }
-.roots-copy h2 { gap: 18px; }
+.roots-copy h2 { gap: 4px; }
 .sprout-icon { font-family: Arial, sans-serif; font-size: 1.25em; line-height: .7; transform: rotate(180deg); }
 .roots-icon { font-family: Arial, sans-serif; font-size: 1.35em; letter-spacing: -.25em; transform: scaleX(1.3); }
 .events {
@@ -161,7 +161,7 @@ a { color: inherit; }
 }
 .event-slideshow > h2 {
   margin: 0 0 25px;
-  font-size: clamp(23px, 4vw, 32px);
+  font-size: clamp(28px, 5vw, 44px);
   letter-spacing: .08em;
 }
 .event-slides {
@@ -195,7 +195,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   gap: clamp(16px, 4vw, 36px);
-  margin-top: 24px;
+  margin-top: 22px;
 }
 .event-slide-button {
   border: 1px solid white;
@@ -211,10 +211,28 @@ a { color: inherit; }
   background: white;
   color: var(--deep-forest);
 }
-.event-slide-count {
-  min-width: 55px;
-  font-size: 15px;
-  font-variant-numeric: tabular-nums;
+.event-slide-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.event-slide-dot {
+  width: 11px;
+  height: 11px;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.event-slide-dot[aria-current="true"] {
+  background: white;
+}
+.event-slide-dot:focus-visible {
+  outline: 2px solid #d3efba;
+  outline-offset: 3px;
 }
 .donate {
   display: grid;
