@@ -17,6 +17,8 @@ const dots = slides.map((slide, index) => {
 });
 let currentSlide = 0;
 let autoplayTimer;
+let swipeStart;
+const swipeThreshold = 45;
 
 function showSlide(index, direction, animate = true) {
   const nextSlide = (index + slides.length) % slides.length;
@@ -68,6 +70,29 @@ controls.forEach((button) => {
     showSlide(currentSlide + Number(button.dataset.slideDirection), direction);
     restartAutoplay();
   });
+});
+
+slideContainer.addEventListener("pointerdown", (event) => {
+  if (event.pointerType === "touch") {
+    swipeStart = { x: event.clientX, y: event.clientY };
+  }
+});
+slideContainer.addEventListener("pointerup", (event) => {
+  if (!swipeStart) {
+    return;
+  }
+  const deltaX = event.clientX - swipeStart.x;
+  const deltaY = event.clientY - swipeStart.y;
+  swipeStart = null;
+  if (Math.abs(deltaX) < swipeThreshold || Math.abs(deltaX) <= Math.abs(deltaY)) {
+    return;
+  }
+  const direction = deltaX < 0 ? "next" : "previous";
+  showSlide(currentSlide + (deltaX < 0 ? 1 : -1), direction);
+  restartAutoplay();
+});
+slideContainer.addEventListener("pointercancel", () => {
+  swipeStart = null;
 });
 
 slideshow.addEventListener("mouseenter", stopAutoplay);
