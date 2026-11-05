@@ -91,17 +91,22 @@ a { color: inherit; }
 }
 .hero p { margin: 0; font-size: clamp(17px, 3.4vw, 24px); }
 .story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(22px, 4vw, 34px) 2.4%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 4vw, 34px);
   padding: 2.3% 1.6% 2%;
   margin-bottom: clamp(16px, 2vw, 28px);
-  align-items: start;
+}
+.story-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.4%;
+  align-items: stretch;
 }
 .story-copy { padding: 2% 3.8%; }
 .story-copy h2 {
   font-family: "Courier New", monospace;
-  font-size: clamp(25px, 5.8vw, 39px);
+  font-size: clamp(29px, 6vw, 46px);
   line-height: 1;
   letter-spacing: .07em;
   border-bottom: 3px solid #064b17;
@@ -113,10 +118,17 @@ a { color: inherit; }
   white-space: nowrap;
 }
 .story-copy p { margin: 0; font-size: clamp(15px, 1.9vw, 24px); }
+.story-image-frame {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
 .story-image {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  aspect-ratio: 1.07 / 1;
+  height: 100%;
   object-fit: cover;
 }
 .heading-icon {
@@ -126,8 +138,6 @@ a { color: inherit; }
   display: inline-block;
   flex-shrink: 0;
 }
-.mission-image { margin-top: 0; }
-.roots-image { margin-top: 0; }
 .roots-copy { padding-top: 0; }
 .roots-copy h2 { gap: 4px; }
 .sprout-icon { font-family: Arial, sans-serif; font-size: 1.05em; line-height: .7; transform: rotate(180deg); }
@@ -319,9 +329,9 @@ footer small { font-size: clamp(8px, 1.3vw, 11px);
   body { font-size: clamp(16px, 1.45vw, 22px); }
   .site-header { padding-left: 4%; padding-right: 4%; }
   .hero { min-height: 38vw; max-height: 600px; }
-  .story-grid { padding: 2.4% 4%; gap: 4% 3%; }
+  .story-grid { padding: 2.4% 4%; gap: clamp(22px, 4vw, 34px); }
+  .story-row { gap: 3%; }
   .story-copy { padding: 2% 4%; }
-  .story-image { aspect-ratio: 1.08 / 1; }
   .events { min-height: 360px; }
   .donate { grid-template-columns: 41.5% 58.5%; min-height: 520px; }
   .donate > img { max-height: 650px; }
@@ -334,9 +344,10 @@ footer small { font-size: clamp(8px, 1.3vw, 11px);
   .site-header nav a { font-size: clamp(11px, 2.65vw, 13px); }
   .header-social { gap: 4px; right: 2%; }
   .header-social a { width: 15px; height: 15px; font-size: 10px; }
-  .story-grid { gap: 20px 2%; padding: 2.3% 1.5% 2%; }
+  .story-grid { gap: 20px; padding: 2.3% 1.5% 2%; }
+  .story-row { gap: 2%; }
   .story-copy { padding: 2% 3%; }
-  .story-copy h2 { font-size: clamp(21px, 5.7vw, 27px); gap: 7px; padding-bottom: 9px; margin-bottom: 14px; }
+  .story-copy h2 { font-size: clamp(24px, 6vw, 32px); gap: 7px; padding-bottom: 9px; margin-bottom: 14px; }
   .roots-copy h2 { gap: 12px; }
   .events-overlay { padding: 15px 4%; }
   .social { gap: 18px; }
