@@ -337,45 +337,6 @@ footer small { font-size: clamp(8px, 1.3vw, 11px);
   .donate { grid-template-columns: 41.5% 58.5%; min-height: 520px; }
   .donate > img { max-height: 650px; }
 }
-@media (max-width: 480px) {
-  .site-header { padding: 0 2%; }
-  .brand { min-width: 22%; font-size: 9px; }
-  .brand-dot { margin-bottom: 5px; }
-  .site-header nav { gap: 9px; padding-top: 10px; }
-  .site-header nav a { font-size: clamp(11px, 2.65vw, 13px); }
-  .header-social { gap: 4px; right: 2%; }
-  .header-social a { width: 15px; height: 15px; font-size: 10px; }
-  .story-grid { gap: 26px; padding: 4%; }
-  .story-row { gap: 3%; }
-  .story-copy { padding: 4% 5%; }
-  .story-copy h2 { font-size: clamp(24px, 6vw, 32px); gap: 7px; padding-bottom: 9px; margin-bottom: 14px; }
-  .roots-copy h2 { gap: 12px; }
-  .events-overlay { padding: 15px 4%; }
-  .social { gap: 18px; }
-  .social a { font-size: clamp(11px, 2.8vw, 14px); }
-  .event-slideshow { padding-right: 5%; padding-left: 5%; }
-  .event-slides {
-    min-height: 0;
-  }
-  .event-slide-controls { gap: 8px; }
-  .event-slide-button { width: 32px; height: 32px; }
-  .donate { grid-template-columns: 41.5% 58.5%; min-height: 0; }
-  .donate-copy { padding: 6% 4%; }
-  .donate-copy h2 { font-size: clamp(25px, 6.9vw, 32px); }
-  .donate-copy p { font-size: clamp(13px, 3.3vw, 16px); margin-bottom: 16px; }
-  .donate-button { min-height: 54px; border-radius: 18px; font-size: clamp(16px, 4.3vw, 21px); gap: 5px; padding: 0 12px; border-width: 6px; }
-  .footer-social { margin-right: 0; }
-}
-@media (max-width: 340px) {
-  .brand { min-width: 20%; }
-  .site-header nav { gap: 6px; }
-  .site-header nav a { font-size: 10px; }
-  .story-copy h2 { letter-spacing: 0; }
-  .story-copy p { font-size: 11px; }
-  .donate-copy h2 { font-size: 22px; }
-  .donate-copy p { font-size: 12px; }
-}
-
 
 /* Core Layout Container */
 .collage-section {
