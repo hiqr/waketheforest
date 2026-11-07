@@ -91,20 +91,22 @@ a { color: inherit; }
   letter-spacing: .02em;
 }
 .hero p { margin: 0; font-size: clamp(17px, 3.4vw, 24px); }
+
+/* mission grid roots grid*/
 .story-grid {
   display: flex;
   flex-direction: column;
   gap: clamp(34px, 5.0vw, 52px);
-  padding: 4% 4.5%;
+  padding: 4% 8% 4% 8%;
   margin-bottom: clamp(16px, 2vw, 28px);
 }
 .story-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 2.4%;
+  gap: 12%;
   align-items: stretch;
 }
-.story-copy { padding: 3% 4.5%; }
+.story-copy { padding: 2% 2%;}
 .story-copy h2 {
   font-family: "Courier New", monospace;
   font-size: clamp(29px, 6vw, 46px);
