@@ -88,7 +88,7 @@ a { color: inherit; }
   font-weight: 700;
   font-size: clamp(31px, 7.1vw, 54px);
   line-height: 1.1;
-  letter-spacing: .02em;
+  letter-spacing: .01em;
 }
 .hero p { margin: 0; font-size: clamp(17px, 3.4vw, 24px); }
 
@@ -171,7 +171,7 @@ a { color: inherit; }
 .social .instagram-icon { fill: none; stroke: currentColor; stroke-width: 1.8; }
 .social .instagram-dot { fill: currentColor; stroke: none; }
 .event-slideshow {
-  min-height: clamp(260px, 30vw, 280px);
+  height: 320px;
   padding: 12px 7% 14px;
   background: var(--deep-forest);
   color: white;
@@ -181,6 +181,7 @@ a { color: inherit; }
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 .event-slideshow > h2 {
   margin: 0 0 20px;
@@ -192,8 +193,8 @@ a { color: inherit; }
   margin-top: 0;
   max-width: 900px;
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 190px;
+  flex: 0 0 190px;
   margin-left: auto;
   margin-right: auto;
   touch-action: pan-y;
@@ -201,6 +202,7 @@ a { color: inherit; }
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  overflow: hidden;
 }
 .tree-event-slide { width: 100%; }
 .tree-event-slide[hidden] { display: none; }
@@ -225,8 +227,10 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   gap: clamp(8px, 2vw, 24px);
-  margin-top: auto;
-  padding-top: 12px;
+  margin-top: 0; /* Changed from auto */
+  padding-top: 0; /* Reduced spacing */
+  flex-shrink: 0;
+  transform: translateY(-15px);
 }
 .event-slide-button {
   display: grid;
@@ -438,3 +442,25 @@ html {
   scrollbar-color: #00520b #f5ffe8;
   scrollbar-width: thin;
 }
+
+
+/*
+@media (max-width: 600px) {
+  .event-slideshow {
+    height: 360px;
+  }
+
+  .event-slides {
+    height: 220px;
+    flex-basis: 220px;
+  }
+
+  .tree-event-slide h3 {
+    font-size: 18px;
+  }
+
+  .tree-event-slide li {
+    font-size: 15px;
+  }
+}
+  /*
